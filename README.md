@@ -199,8 +199,8 @@ python -m moltbook_poc.cli eval-head `
   --overwrite
 ```
 
-Outputs are written under:
+## Citation
 
-```text
-trained_classifier\runs_kfold\kaggle_noprefix_h0_eval_only\
-```
+If you find this work useful, please cite:
+
+TO DO: add citation when the paper is published.
