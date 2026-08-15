@@ -1,0 +1,29 @@
+model:
+  name: Qwen/Qwen3-Embedding-0.6B
+  max_seq_length: 8192
+  fp16: true
+  batch_size: 1
+head:
+  hidden: 0
+  dropout: 0.2
+  lr: 0.001
+  weight_decay: 0.01
+  max_epochs: 15
+  checkpoint_every: 2
+data:
+  dir: data
+  mask_emails: true
+  email_placeholder: '@'
+  seed: 20260725
+  expected_counts:
+    train:
+    - 639
+    - 5438
+    test:
+    - 273
+    - 2330
+variant: noprefix
+instruct_prefix: 'Instruct: Classify whether this post from an AI-agent social network
+  contains a prompt-injection or other attack.
+
+  Query:'

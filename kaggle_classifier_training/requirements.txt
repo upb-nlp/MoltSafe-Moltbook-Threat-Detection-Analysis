@@ -1,0 +1,7 @@
+# Kaggle already ships torch/pandas/numpy/tqdm; these are the extras train_head.py needs.
+# Qwen3-Embedding requires transformers >= 4.51 (native architecture, no trust_remote_code).
+sentence-transformers>=3.0.0
+transformers>=4.51.0
+scikit-learn>=1.3
+pyarrow
+pyyaml

@@ -1,0 +1,15 @@
+data_dir: data
+published_dataset: data/published/dataset.csv
+judge_dir: data/judge
+judge_results: data/judge/results_merged.csv
+judge_raw_responses: data/judge/raw_responses.jsonl
+judge_sample_input: data/judge/sampled_input.csv
+judge_retry_input: data/judge/retry_input.csv
+corpus_english: data/corpus/language_analysis_high_accuracy/moltbook_nodes_english.parquet
+synced_nodes: data/synced/moltbook_nodes_10k.parquet
+fold_data_dir: data/fold_data
+seed_phase1_dir: data/fold_data
+results_dir: results
+contrast_config_dir: config/contrast
+annotation_review_dir: data/judge/samples_to_review
+annotation_agreement_dir: data/judge/annotator_agreement

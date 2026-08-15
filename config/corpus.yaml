@@ -1,0 +1,30 @@
+random_seed: 42
+
+moltbook:
+  hf_dataset: AIcell/moltbook-data
+  hf_revision: ac44731bf1a31bf9e1af05dae74f2b567c3035b2
+  post_config: posts
+  comment_config: comments
+  split: train
+  max_items: 0
+  text_max_chars: 0
+
+embedding:
+  model_name: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+  fp16: true
+  batch_size: 32
+  max_seq_length: 256
+  mask_emails: true
+  email_placeholder: "@"
+  chunking: true
+  chunk_tokens: 256
+  chunk_overlap: 32
+
+language:
+  low_accuracy_mode: false
+  output_subdir: language_analysis_high_accuracy
+  min_chars: 2
+  mixed_min_frac: 0.1
+  detect_batch_size: 50000
+  english_min_frac: 0.5
+  english_only: true

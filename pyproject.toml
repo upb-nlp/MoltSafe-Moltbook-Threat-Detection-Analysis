@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "moltbook-poc"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "click>=8.1",
+    "datasets>=2.14",
+    "sentence-transformers>=2.2",
+    "transformers>=4.50",
+    "faiss-cpu>=1.7",
+    "pandas>=2.0",
+    "pyarrow>=21,<22",   # 24.0.0's native lib segfaults next to torch/transformers on Windows; datasets 5.x needs >=21
+    "numpy>=1.24",
+    "tqdm>=4.65",
+    "pyyaml>=6.0",
+    "lingua-language-detector>=2.0",   # chunk-level language tagging (language-filter step)
+    "bertopic>=0.17.4",
+    "umap-learn>=0.5.12",
+    "hdbscan>=0.8.44",
+    "gensim>=4.4.0",
+    "plotly>=6.9.0",
+    "kaleido>=1.3.0",
+    "notebook>=7.6",
+    "nbconvert>=7.17",
+    "openai>=2.44,<3",
+]
+
+[project.scripts]
+molt-cli = "moltbook_poc.cli:cli"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "tests", "experiments"]
+testpaths = ["tests"]
+addopts = "-v -m 'not slow'"
+markers = [
+    "slow: integration tests that load the embedding model (run with: pytest -m slow)",
+]

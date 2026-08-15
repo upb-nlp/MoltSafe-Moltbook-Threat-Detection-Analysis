@@ -1,0 +1,31 @@
+.venv/
+**/.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+pytest-cache-files-*/
+.ipynb_checkpoints/
+*.rar
+
+# test scratch
+_verify/
+test_runtime_kfold/
+test_tmp_judge_cli/
+tools/_runtime/
+
+# generated data
+data/*
+contrast_pipeline/runs_model_compare/
+!data/
+!data/published/
+!data/published/dataset.csv
+!data/judge/
+data/judge/*
+!data/judge/results_merged.csv
+!data/judge/raw_responses.jsonl
+
+# regenerable per-fold intermediates
+results/*/fold_*/phase1/
+results/*/fold_*/reference/
+trained_classifier/runs_kfold/*/fold_*/checkpoints/

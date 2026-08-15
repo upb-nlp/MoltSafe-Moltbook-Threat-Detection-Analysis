@@ -1,0 +1,16 @@
+model:
+  name: Qwen/Qwen3-Embedding-0.6B
+  max_seq_length: 8192
+  fp16: true                
+  batch_size: 16
+
+head:
+  hidden: 0                 
+  dropout: 0.2
+  lr: 1.0e-3
+  weight_decay: 1.0e-2
+
+  max_epochs: 15
+  checkpoint_every: 2
+
+variant: noprefix

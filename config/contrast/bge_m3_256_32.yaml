@@ -1,0 +1,21 @@
+random_seed: 42
+
+embedding:
+  model_name: "BAAI/bge-m3"
+  trust_remote_code: false
+  fp16: true
+  batch_size: 16
+  max_seq_length: 256
+  mask_emails: true
+  email_placeholder: "@"
+  chunking: true
+  chunk_tokens: 256
+  chunk_overlap: 32
+
+faiss:
+  top_k: 5
+
+search:
+  mode: "contrast"
+  malicious_severities: ["3", "4", "5"]
+  benign_severities: ["0"]
