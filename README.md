@@ -1,6 +1,6 @@
 # Moltbook Threat Detection
 
-This repository accompanies the study "Do We Need a Frontier Judge for Every Message? Evaluating Embedding Prefilters for Agentic Social Network Safety" and the Hugging Face dataset repository `PaulCl/MoltSafe-10K`. It contains the code used to construct the Moltbook corpus, obtain LLM-judge labels, run embedding-based contrast evaluations, and train and evaluate the lightweight classifier heads described in the paper.
+This repository accompanies the study "Do We Need a Frontier Judge for Every Message? Evaluating Embedding Prefilters for Agentic Social Network Safety" and the Hugging Face dataset repository `upb-nlp/MoltSafe-10K`. It contains the code used to construct the Moltbook corpus, obtain LLM-judge labels, run embedding-based contrast evaluations, and train and evaluate the lightweight classifier heads described in the paper.
 
 Python commands below are written in module form. To see the available CLI commands:
 
