@@ -119,9 +119,19 @@ If the reader wishes to adapt the prompt used in our study, they can do so by in
 data_prep\judge_api\prompt.txt
 ```
 
+## Published Label Sync
+
+To reproduce the paper evaluations without rerunning the OpenAI Batch API, use the published labelled dataset `upb-nlp/MoltSafe-10K`. The sync command downloads `dataset.csv` from Hugging Face, resolves those node IDs against the reconstructed English Moltbook corpus, verifies text hashes when present, and writes the local inputs expected by the fold-data builder:
+
+```powershell
+python -m moltbook_poc.cli sync-published-nodes `
+  --hf-repo upb-nlp/MoltSafe-10K `
+  --corpus data\corpus\language_analysis_high_accuracy\moltbook_nodes_english.parquet
+```
+
 ## Fold Data
 
-The contrast evaluation and classifier-head evaluation consume a shared fold-data directory. Build it from the judged labels and the English-filtered corpus:
+The contrast evaluation and classifier-head evaluation consume a shared fold-data directory. Build it either from freshly judged labels, or from the published-label sync outputs above.
 
 ```powershell
 python -m moltbook_poc.cli prepare-contrast-data `
