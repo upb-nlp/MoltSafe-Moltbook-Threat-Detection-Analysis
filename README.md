@@ -14,7 +14,7 @@ The study evaluates whether local embedding-based prefilters can reduce the numb
 
 We evaluate two families of prefilters. The contrast method is training-free: it embeds judged reference nodes, builds safe and unsafe centroids, and scores each candidate node by its relative similarity to those centroids. The classifier-head baseline trains only a lightweight 2-class linear head on top of a frozen Qwen3-Embedding encoder. In both cases, thresholds are selected within each fold to target recall 0.80, and reported fold summaries use the mean and sample standard deviation across the 5 folds.
 
-## Result
+## Results
 
 The table below summarizes the trade-off between local throughput and projected frontier-judge cost for the selected prefilters and the trained classifier.
 
@@ -41,8 +41,6 @@ python -m pip install -r req.txt
 python -m pip install -e .
 ```
 
-The pinned environment uses the CUDA 12.6 PyTorch wheel. Corpus construction, language filtering, and OpenAI judge submission are CPU/API steps. Contrast evaluation and classifier-head evaluation use the GPU path, so local runs need an NVIDIA driver compatible with CUDA 12.x.
-
 ## Corpus Construction
 
 Build the Moltbook node corpus and apply the language filter:
@@ -50,13 +48,6 @@ Build the Moltbook node corpus and apply the language filter:
 ```powershell
 python -m moltbook_poc.cli prep-data
 python -m moltbook_poc.cli language-filter
-```
-
-Primary outputs:
-
-```text
-data\corpus\phase1\moltbook_nodes.parquet
-data\corpus\language_analysis_high_accuracy\moltbook_nodes_english.parquet
 ```
 
 The English-filtered parquet is the input to the judge sampling step.
@@ -133,10 +124,21 @@ python -m moltbook_poc.cli sync-published-nodes `
 
 The contrast evaluation and classifier-head evaluation consume a shared fold-data directory. Build it either from freshly judged labels, or from the published-label sync outputs above.
 
+Using the freshly judged labels:
+
 ```powershell
 python -m moltbook_poc.cli prepare-contrast-data `
   --results data\judge\results.csv `
   --corpus data\corpus\language_analysis_high_accuracy\moltbook_nodes_english.parquet `
+  --overwrite
+```
+
+Using the published-label sync path:
+
+```powershell
+python -m moltbook_poc.cli prepare-contrast-data `
+  --results data\judge\results_merged.csv `
+  --corpus data\synced\moltbook_nodes_10k.parquet `
   --overwrite
 ```
 
