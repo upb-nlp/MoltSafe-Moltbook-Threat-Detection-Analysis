@@ -216,8 +216,6 @@ python -m moltbook_poc.cli eval-head `
 
 If you use this work, code, or dataset in your research, please cite:
 
-> Clotan, P.-I., Branescu, I., Gherghe, G. A., Dascalu, M., & Rebedea, T. (2026). *Evaluating Safety Embedding Prefiltering for Analyzing Millions of LLM Agent Social Network Messages for Security and Safety Harms*. Preprints. https://doi.org/10.20944/preprints202609.0359.v1
-
 ```bibtex
 @article{202609.0359,
   doi       = {10.20944/preprints202609.0359.v1},
